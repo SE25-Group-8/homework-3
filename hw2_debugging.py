@@ -1,6 +1,13 @@
+"""
+hw2_debugging.py
+
+This script creates a merge sort algorithm used for sorting randomized arrays
+"""
 import rand
 
+
 def merge_sort(arr):
+    """ Splits array in half and recurively calls merge_sort on each half of the array"""
     if len(arr) == 1:
         return arr
 
@@ -9,6 +16,7 @@ def merge_sort(arr):
     return recombine(merge_sort(arr[:half]), merge_sort(arr[half:]))
 
 def recombine(left_arr, right_arr):
+    """ Combines two given arrays in left-to-right increasing order """
     left_index = 0
     right_index = 0
     merge_arr = [None] * (len(left_arr) + len(right_arr))
