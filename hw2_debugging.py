@@ -5,7 +5,7 @@ from quick_sort import quick_sort
 
 def merge_sort(input_arr):
     """Sorts the input array using merge sort"""
-    if len(input_arr) == 1:
+    if len(input_arr) <= 1:
         return input_arr
 
     half = len(input_arr) // 2
