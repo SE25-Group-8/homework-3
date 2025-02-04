@@ -1,4 +1,4 @@
-import rand
+import rand,quicksort
 
 def mergeSort(arr):
     if (len(arr) == 1):
@@ -32,5 +32,9 @@ arr = rand.random_array([None] * 20)
 arr_out = mergeSort(arr)
 
 print(arr_out)
+
+arr = rand.random_array([None] * 20)
+arr_out = quicksort(arr)
+print("Quicksort",arr_out)
 
 
