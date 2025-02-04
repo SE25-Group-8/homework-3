@@ -1,0 +1,7 @@
+hw2_debugging.py
+    F 14:0 recombine - B (6)
+    F 6:0 merge_sort - A (2)
+quick_sort.py
+    F 3:0 quick_sort - B (6)
+rand.py
+    F 5:0 random_array - A (2)
