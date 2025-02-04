@@ -1,40 +1,47 @@
-import rand,quicksort
+"""Driver Module. Contains merge sort implementation. And execution of merge sort and quick sort"""
 
-def mergeSort(arr):
-    if (len(arr) == 1):
-        return arr
+import rand
+from quick_sort import quick_sort
 
-    half = len(arr)//2
+def merge_sort(input_arr):
+    """Sorts the input array using merge sort"""
+    if len(input_arr) == 1:
+        return input_arr
 
-    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+    half = len(input_arr) // 2
+    return recombine(merge_sort(input_arr[:half]), merge_sort(input_arr[half:]))
 
-def recombine(leftArr, rightArr):
-    leftIndex = 0
-    rightIndex = 0
-    mergeArr = [None] * (len(leftArr) + len(rightArr))
-    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] < rightArr[rightIndex]:
-            rightIndex += 1
-            mergeArr[leftIndex + rightIndex] = leftArr[leftIndex]
+def recombine(left_arr, right_arr):
+    """Merges two sorted arrays into one sorted array."""
+    left_index = 0
+    right_index = 0
+    merged_arr = [None] * (len(left_arr) + len(right_arr))
+
+    index = 0
+    while left_index < len(left_arr) and right_index < len(right_arr):
+        if left_arr[left_index] < right_arr[right_index]:
+            merged_arr[index] = left_arr[left_index]
+            left_index += 1
         else:
-            leftIndex += 1
-            mergeArr[leftIndex + rightIndex] = rightArr[rightIndex]
+            merged_arr[index] = right_arr[right_index]
+            right_index += 1
+        index += 1
 
-    for i in range(rightIndex, len(rightArr)):
-        mergeArr[leftIndex + rightIndex] = rightArr[i]
-    
-    for i in range(leftIndex, len(leftArr)):
-        mergeArr[leftIndex + rightIndex] = leftArr[i]
+    while left_index < len(left_arr):
+        merged_arr[index] = left_arr[left_index]
+        left_index += 1
+        index += 1
+    while right_index < len(right_arr):
+        merged_arr[index] = right_arr[right_index]
+        right_index += 1
+        index += 1
 
-    return mergeArr
+    return merged_arr
 
 arr = rand.random_array([None] * 20)
-arr_out = mergeSort(arr)
-
+arr_out = merge_sort(arr)
 print(arr_out)
 
 arr = rand.random_array([None] * 20)
-arr_out = quicksort(arr)
-print("Quicksort",arr_out)
-
-
+arr_out = quick_sort(arr)
+print("Quicksort:", arr_out)
