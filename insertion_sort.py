@@ -13,7 +13,7 @@ def insertion_sort(arr):
 
         idx = 1
 
-        while idx < arr_len - 1:
+        while idx < arr_len:
 
             if (idx != 0 and arr[idx] < arr[idx-1]):
                 temp = arr[idx]
@@ -27,6 +27,5 @@ def insertion_sort(arr):
     return arr
 
 rand_arr = rand.random_array([None] * 20)
-#rand_arr = [4,5,2,6,1,7]
 
 print(insertion_sort(rand_arr))
