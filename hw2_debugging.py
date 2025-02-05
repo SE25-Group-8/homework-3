@@ -52,7 +52,7 @@ def insertionSort(arr):
     return arr
 
 arr_2 = rand.random_array([None] * 20) 
-arr_2_out = insertionSort(arr)
+arr_2_out = insertionSort(arr_2)
 
 print(arr_2_out)
 
