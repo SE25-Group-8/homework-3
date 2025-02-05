@@ -1,3 +1,4 @@
+
 """This module contains a function to generate random array"""
 
 import subprocess
@@ -9,5 +10,5 @@ def random_array(arr):
             ["shuf", "-i1-20", "-n1"], capture_output=True, check=True
         )
         arr[i] = int(shuffled_num.stdout)
-
+        
     return arr
