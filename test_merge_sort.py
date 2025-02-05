@@ -1,6 +1,6 @@
 
 import pytest
-from hw2_debugging 
+import hw2_debugging
 
 """
 test_merge_sort.py
