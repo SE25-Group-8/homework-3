@@ -1,47 +1,40 @@
-"""Driver Module. Contains merge sort implementation. And execution of merge sort and quick sort"""
+"""
+hw2_debugging.py
 
+This script creates a merge sort algorithm used for sorting randomized arrays
+"""
 import rand
-from quick_sort import quick_sort
 
-def merge_sort(input_arr):
-    """Sorts the input array using merge sort"""
-    if len(input_arr) <= 1:
-        return input_arr
 
-    half = len(input_arr) // 2
-    return recombine(merge_sort(input_arr[:half]), merge_sort(input_arr[half:]))
+def merge_sort(arr):
+    """ Splits array in half and recurively calls merge_sort on each half of the array"""
+    if len(arr) == 1:
+        return arr
+
+    half = len(arr)//2
+
+    return recombine(merge_sort(arr[:half]), merge_sort(arr[half:]))
 
 def recombine(left_arr, right_arr):
-    """Merges two sorted arrays into one sorted array."""
+    """ Combines two given arrays in left-to-right increasing order """
     left_index = 0
     right_index = 0
-    merged_arr = [None] * (len(left_arr) + len(right_arr))
+    merge_arr = []
 
-    index = 0
     while left_index < len(left_arr) and right_index < len(right_arr):
         if left_arr[left_index] < right_arr[right_index]:
-            merged_arr[index] = left_arr[left_index]
+            merge_arr.append(left_arr[left_index])
             left_index += 1
         else:
-            merged_arr[index] = right_arr[right_index]
+            merge_arr.append(right_arr[right_index])
             right_index += 1
-        index += 1
 
-    while left_index < len(left_arr):
-        merged_arr[index] = left_arr[left_index]
-        left_index += 1
-        index += 1
-    while right_index < len(right_arr):
-        merged_arr[index] = right_arr[right_index]
-        right_index += 1
-        index += 1
+    merge_arr.extend(left_arr[left_index:])
+    merge_arr.extend(right_arr[right_index:])
 
-    return merged_arr
+    return merge_arr
 
-arr = rand.random_array([None] * 20)
-arr_out = merge_sort(arr)
+rand_arr = rand.random_array([None] * 20)
+arr_out = merge_sort(rand_arr)
+
 print(arr_out)
-
-arr = rand.random_array([None] * 20)
-arr_out = quick_sort(arr)
-print("Quicksort:", arr_out)
