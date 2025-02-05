@@ -1,10 +1,12 @@
+
+import pytest
+import hw2_debugging
+
 """
 test_merge_sort.py
-
-Creates tests for the mergesort methof from hw2_debugging.py file
+Creates tests for the mergesort method from hw2_debugging.py file
 """
 
-import hw2_debugging
 
 class TestClass:
     """ Holds test functions for mergesort function """
@@ -23,3 +25,16 @@ class TestClass:
         """ Tests mergesort works with negative values """
         arr = [-1,7,-4,2,9,-9,5,2]
         assert hw2_debugging.merge_sort(arr) == [-9,-4,-1,2,2,5,7,9]
+        
+    def test_7_empty_arr():
+        """Test merge sort with an empty array"""
+        assert hw2_debugging.merge_sort([]) == []
+
+    def test_8_floats():
+        """Test merge sort with an array containing floats"""
+        assert hw2_debugging.merge_sort([2.5, 3.1, 1.2, 5.0]) == [1.2, 2.5, 3.1, 5.0]
+
+    def test_9_reverse():
+        """Test merge sort with an array in reverse order"""
+        assert hw2_debugging.merge_sort([5, 4, 3, 2, 1]) == [1, 2, 3, 4, 5]
+
