@@ -8,7 +8,7 @@ import rand
 
 def merge_sort(arr):
     """ Splits array in half and recurively calls merge_sort on each half of the array"""
-    if len(arr) == 1:
+    if len(arr) <= 1:
         return arr
 
     half = len(arr)//2
@@ -52,7 +52,9 @@ def insertion_sort(arr):
 
     return arr
 
+
 arr_2 = rand.random_array([None] * 20)
 arr_2_out = insertion_sort(arr_2)
+
 
 print(arr_2_out)
