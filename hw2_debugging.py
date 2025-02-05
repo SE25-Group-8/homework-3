@@ -8,7 +8,7 @@ import rand
 
 def merge_sort(arr):
     """ Splits array in half and recurively calls merge_sort on each half of the array"""
-    if len(arr) == 1:
+    if len(arr) <= 1:
         return arr
 
     half = len(arr)//2
