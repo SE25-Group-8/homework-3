@@ -33,20 +33,8 @@ def recombine(leftArr, rightArr):
 arr = rand.random_array([None] * 20)
 arr_out = mergeSort(arr)
 
-test_1_rg = [4, 1, 5, 3, 2]
-test_2_rg = ["cat", "apple", "boat", "track", "rope"]
-test_3_rg = [6.7, 3.2, 4.5, 0.4, 1.3]
-
-test_1_rg_out = mergeSort(test_1_rg)
-test_2_rg_out = mergeSort(test_2_rg)
-test_3_rg_out= mergeSort(test_3_rg)
-
-print("MERGESORT: ")
 print(arr_out)
-print(test_1_rg_out)
-print(test_2_rg_out)
-print(test_3_rg_out)
-print("")
+
 
 def insertionSort(arr): 
     for i in range (1, len(arr)): 
@@ -63,6 +51,5 @@ def insertionSort(arr):
 arr_2 = rand.random_array([None] * 20) 
 arr_2_out = insertionSort(arr)
 
-print("INSERTION SORT: ")
 print(arr_2_out)
 
